@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-</head>
-<body>
-<h1>LogIn Page</h1>
-<a href="{% url 'studentPage' %}">Student Page</a>
-<a href="{% url 'project' %}">Project</a>
-</body>
-</html>
+{% extends 'StudentDashBoard/base_template.html' %}
+
+{% block header %}
+<h1> Index Page</h1>
+{% endblock header %}
+
+{% block content %}
+{{message}}
+{% endblock content %}

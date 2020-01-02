@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Base Template Title</title>
+</head>
+<body>
+{% block header %}
+<h1>Header</h1>
+{% endblock header %}
+
+{% block navbar %}
+<a href="{% url 'studentPage' %}">Student Page</a>
+<a href="{% url 'project' %}">Project</a>
+{% endblock navbar %}
+
+{% block content %}
+<h1>Content</h1>
+{% endblock content %}
+
+{% block footer %}
+<h1> Footer </h1>
+{% endblock footer %}
+</body>
+</html>

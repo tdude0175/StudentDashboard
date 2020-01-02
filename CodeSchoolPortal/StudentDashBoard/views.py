@@ -1,18 +1,28 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import ScoreCardForm , ClassWorkForm , AttendanceForm
 # Create your views here.
 
 
-def index(res):
+def index(req):
+    if req.user.is_authenticated:
+        context= \
+            {
+                'message':f"Welcome {req.user.username}"
+            }
+        return render(req,'StudentDashBoard/index.html',context)
     context=\
         {
-            'name':"Thomas"
+            'message':"Please Log in"
         }
-    return render(res,'StudentDashBoard/index.html',context)
+    return render(req,'StudentDashBoard/index.html',context)
+
+@login_required
+def studentPage(req):
+    return render(req,'StudentDashBoard/StudentPage.html')
 
 
-def studentPage(res):
-    return render(res,'StudentDashBoard/StudentPage.html')
-
-def project(res):
-    return render(res,'StudentDashBoard/ProjectPage.html')
+@login_required
+def project(req):
+    return render(req,'StudentDashBoard/ProjectPage.html')
