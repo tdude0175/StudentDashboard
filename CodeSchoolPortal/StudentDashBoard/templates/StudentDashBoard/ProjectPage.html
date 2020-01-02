@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-Classwork Page
-</body>
-</html>
+{% extends 'StudentDashBoard/base_template.html' %}
+
+{% block header %}
+<h1> Classwork Page</h1>
+{% endblock header %}
+
+{% block content %}
+<div>Your Classwork will be here</div>
+<div>This will show your grade </div>
+<div>This will be a link to the repository, if this is a project it will also have a link to the rubric for the project</div>
+{% endblock content %}

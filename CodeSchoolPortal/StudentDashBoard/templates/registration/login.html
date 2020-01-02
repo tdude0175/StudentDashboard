@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-Login Page
-<form action="">
-    <p><input type="text" placeholder="Username"></p>
-    <p><input type="password" placeholder="Password"></p>
+{% extends 'StudentDashBoard/base_template.html' %}
+
+{% block header %}
+<h1>Login Page</h1>
+{% endblock header %}
+
+{% block content %}
+{% if form.errors %}
+<h3>Your username or password is incorrect</h3>
+{{ form.errors }}
+{% endif %}
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <p>{{ form.username.label_tag }}</p>
+    <p>{{ form.username }}</p>
+    <p>{{ form.password.label_tag }}</p>
+    <p>{{ form.password }}</p>
     <button>Submit</button>
 </form>
-</body>
-</html>
+{% endblock content %}
+
