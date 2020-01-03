@@ -5,7 +5,42 @@
 {% endblock header %}
 
 {% block content %}
-<div>Your Classwork will be here</div>
-<div>Projects will be here</div>
+<div class="workList">
+
+    {% for lesson in lessons %}
+    <p>
+        <a href="{% url 'classWork' lesson.id %}">{{lesson.lessonName}}</a>
+        <a target="_blank" href="{{lesson.sourceURL}}">ClassWork Link </a>
+        {% for classwork in classworks %}
+        {% if classwork.lesson == lesson %}
+        {{classwork.grade}}/{{lesson.possiblePoints}}
+        {% if classwork.repoWithStudentsWork != '' %}
+        <a href="{{classwork.repoWithStudentsWork}}">Submitted Work</a>
+        {% else %}
+    <form action=""></form>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    </p>
+    {% endfor %}
+</div>
+<div class="workList">
+    {% for project in projects %}
+    <p>
+        <a href="{% url 'classWork' project.id %}">{{project.lessonName}}</a>
+        <a target="_blank" href="{{project.sourceURL}}">Project Link</a>
+        {% for classwork in classworks %}
+        {% if classwork.lesson == project %}
+        {{classwork.grade}}/{{project.possiblePoints}}
+        {% if classwork.repoWithStudentsWork != '' %}
+        <a href="{{classwork.repoWithStudentsWork}}">Submitted Work</a>
+        {% else %}
+    <form action=""></form>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    </p>
+    {% endfor %}
+</div>
 <div>Your attendace will be tracked here</div>
 {% endblock content %}

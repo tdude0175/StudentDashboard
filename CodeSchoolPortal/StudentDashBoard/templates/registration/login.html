@@ -7,7 +7,6 @@
 {% block content %}
 {% if form.errors %}
 <h3>Your username or password is incorrect</h3>
-{{ form.errors }}
 {% endif %}
 <form action="{% url 'login' %}" method="post">
     {% csrf_token %}

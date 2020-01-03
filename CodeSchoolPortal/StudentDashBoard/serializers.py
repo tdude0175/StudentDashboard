@@ -1,4 +1,4 @@
-from .models import ScoreCardModel , ClassWorkModel , AttendaceModels
+from .models import ScoreCardModel , ClassWorkModel , AttendaceModels , ClassModel , LessonModel
 from rest_framework import serializers
 
 class ScoreCardSerializer(serializers.ModelSerializer):
@@ -14,4 +14,14 @@ class ClassWorkSerialzer(serializers.ModelSerializer):
 class AttendanceSerialzer(serializers.ModelSerializer):
     class Meta:
         model = AttendaceModels
+        fields = '__all__'
+
+class LessonSerialzer(serializers.ModelSerializer):
+    class Meta:
+        model = LessonModel
+        fields = '__all__'
+
+class ClassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClassModel
         fields = '__all__'

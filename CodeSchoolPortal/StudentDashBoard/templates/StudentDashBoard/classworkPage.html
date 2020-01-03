@@ -1,0 +1,24 @@
+{% extends 'StudentDashBoard/base_template.html' %}
+
+{% block header %}
+<h1>{{ lesson.lessonName }}</h1>
+{% endblock header %}
+
+{% block content %}
+{% if classwork %}
+<div>
+    {{lesson.lessonName}}
+</div>
+<div>
+    <h3>Current Grade: {{classwork.grade}}/{{lesson.possiblePoints}}</h3>
+</div>
+{% if classwork.repoWithStudentsWork == '' %}
+<div>No Repo Submitted</div>
+{% else %}
+<div><a target="_blank" href="{{classwork.repoWithStudentsWork}}">Classwork Submitted</a></div>
+{% endif %}
+{% endif %}
+{% if classwork.rubric %}
+<p>{{classwork.rubric}}</p>
+{% endif%}
+{% endblock content %}
