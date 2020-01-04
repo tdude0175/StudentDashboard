@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import ScoreCardModel, ClassModel, ClassWorkModel, AttendaceModels, LessonModel
 from .forms import ScoreCardForm, ClassWorkForm, AttendanceForm, LessonForm, ClassForm
-
+from django.shortcuts import redirect
 
 # Create your views here.
 
@@ -77,3 +77,9 @@ def classWork(req, lessonNum):
             'lesson': lesson
         }
     return render(req, 'StudentDashBoard/classworkPage.html', context)
+def addWork(req,classworkNum):
+    repoToSave =req.POST.get("repoToSave")
+    classworkToUpdate = ClassWorkModel.objects.get(id = classworkNum)
+    classworkToUpdate.repoWithStudentsWork = repoToSave
+    classworkToUpdate.save()
+    return redirect('studentPage')

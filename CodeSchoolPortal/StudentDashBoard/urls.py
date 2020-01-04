@@ -14,5 +14,6 @@ urlpatterns = [
     path('',include(router.urls)),
     path('accounts/', include('django.contrib.auth.urls')),
     path('studentPage/',views.studentPage,name='studentPage'),
-    path('classwork/<int:lessonNum>',views.classWork,name='classWork')
+    path('classwork/<int:lessonNum>/',views.classWork,name='classWork'),
+    path('addwork/<int:classworkNum>/',views.addWork,name='addWork'),
 ]

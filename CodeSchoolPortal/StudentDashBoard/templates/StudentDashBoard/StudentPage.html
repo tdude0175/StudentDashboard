@@ -17,7 +17,7 @@
         {% if classwork.repoWithStudentsWork != '' %}
         <a href="{{classwork.repoWithStudentsWork}}">Submitted Work</a>
         {% else %}
-    <form action=""></form>
+    <form action="{% url 'addWork' classwork.id %}" method="post">{% csrf_token %} <input name="repoToSave" placeholder="insert Repo link here" type="text"><button>Submit</button></form>
     {% endif %}
     {% endif %}
     {% endfor %}
@@ -35,7 +35,7 @@
         {% if classwork.repoWithStudentsWork != '' %}
         <a href="{{classwork.repoWithStudentsWork}}">Submitted Work</a>
         {% else %}
-    <form action=""></form>
+    <form action="{% url 'addWork' classwork.id %}" method="post"> {% csrf_token %}<input name="repoToSave" placeholder="insert Repo link here" type="text"><button>Submit</button></form>
     {% endif %}
     {% endif %}
     {% endfor %}
