@@ -5,42 +5,49 @@
 {% endblock header %}
 
 {% block content %}
-<div class="workList">
+<div id="ClassWorkList" class="workList">
 
     {% for lesson in lessons %}
-    <p>
+    <div class="WorkListSpacing">
         <a href="{% url 'classWork' lesson.id %}">{{lesson.lessonName}}</a>
         <a target="_blank" href="{{lesson.sourceURL}}">ClassWork Link </a>
         {% for classwork in classworks %}
         {% if classwork.lesson == lesson %}
         {{classwork.grade}}/{{lesson.possiblePoints}}
         {% if classwork.repoWithStudentsWork != '' %}
-        <a href="{{classwork.repoWithStudentsWork}}">Submitted Work</a>
+        <a target="_blank" href="{{classwork.repoWithStudentsWork}}">Submitted Work</a>
         {% else %}
-    <form action="{% url 'addWork' classwork.id %}" method="post">{% csrf_token %} <input name="repoToSave" placeholder="insert Repo link here" type="text"><button>Submit</button></form>
-    {% endif %}
-    {% endif %}
-    {% endfor %}
-    </p>
+        <form action="{% url 'addWork' classwork.id %}" method="post">{% csrf_token %} <input name="repoToSave"
+                                                                                              placeholder="Insert link to work here"
+                                                                                              type="text">
+            <button>Submit</button>
+        </form>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </div>
     {% endfor %}
 </div>
-<div class="workList">
+<div id="ProjectList" class="workList">
     {% for project in projects %}
-    <p>
+    <div class="WorkListSpacing">
         <a href="{% url 'classWork' project.id %}">{{project.lessonName}}</a>
         <a target="_blank" href="{{project.sourceURL}}">Project Link</a>
         {% for classwork in classworks %}
         {% if classwork.lesson == project %}
         {{classwork.grade}}/{{project.possiblePoints}}
         {% if classwork.repoWithStudentsWork != '' %}
-        <a href="{{classwork.repoWithStudentsWork}}">Submitted Work</a>
+        <a target="_blank" href="{{classwork.repoWithStudentsWork}}">Submitted Work</a>
         {% else %}
-    <form action="{% url 'addWork' classwork.id %}" method="post"> {% csrf_token %}<input name="repoToSave" placeholder="insert Repo link here" type="text"><button>Submit</button></form>
-    {% endif %}
-    {% endif %}
-    {% endfor %}
-    </p>
+        <form action="{% url 'addWork' classwork.id %}" method="post"> {% csrf_token %}<input name="repoToSave"
+                                                                                              placeholder="Insert link to work here"
+                                                                                              type="text">
+            <button>Submit</button>
+        </form>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </div>
     {% endfor %}
 </div>
-<div>Your attendace will be tracked here</div>
 {% endblock content %}

@@ -5,9 +5,45 @@ body
 
 .workList
 {
-    height: 20%;
-    width: 30%;
-    background-color: aqua;
-    overflow: auto;
+    height: 300px;
+    background-color: sandybrown;
+    overflow-y: scroll;
     margin: 2%;
+    max-height: fit-content;
+}
+#ClassWorkList
+{
+    grid-column: 1/4;
+    grid-row: 1/5;
+}
+#ProjectList
+{
+    grid-column: 1/4;
+    grid-row: 5/9;
+}
+.WorkListSpacing
+{
+        margin: 2%;
+    max-height: 20%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    background-color: lightgoldenrodyellow;
+}
+.WorkListSpacing a
+{
+    color: black;
+    text-decoration: none;
+}
+.WorkListSpacing a:hover
+{
+    text-decoration: underline;
+    color: blueviolet;
+}
+#gridContainer
+{
+    width: 100%;
+    display: inline-grid;
+    grid-template-columns: repeat(6,1fr) ;
+    grid-template-rows: repeat(8,1fr);
+
 }
