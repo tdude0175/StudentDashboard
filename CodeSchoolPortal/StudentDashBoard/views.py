@@ -79,6 +79,8 @@ def classWork(req, lessonNum):
         }
     return render(req, 'StudentDashBoard/classworkPage.html', context)
 
+# Allows students to add their clone repos for the classwork
+# /ToDo Setup the GitHub Api to auto FIll in the URL for the ClassWork When A Student Clicks the Scoure URL
 def addWork(req,classworkNum):
     repoToSave =req.POST.get("repoToSave")
     classworkToUpdate = ClassWorkModel.objects.get(id = classworkNum)
