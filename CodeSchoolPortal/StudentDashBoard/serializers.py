@@ -1,6 +1,6 @@
 from .models import ScoreCardModel , ClassWorkModel , AttendaceModels , ClassModel , LessonModel
 from rest_framework import serializers
-
+# For information on this page please refer to the readme about rest_framework for Django
 class ScoreCardSerializer(serializers.ModelSerializer):
     class Meta:
         model = ScoreCardModel

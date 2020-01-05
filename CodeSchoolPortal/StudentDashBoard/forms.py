@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from .models import ScoreCardModel,ClassWorkModel,AttendaceModels , LessonModel , ClassModel
-
+# These forms can be used to set up A teacher page in adding Lessons classes and students in the future as well as setting up refering to past and future Classes
 class ScoreCardForm(ModelForm):
     class Meta:
         model = ScoreCardModel

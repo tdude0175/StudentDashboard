@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from .serializers import ScoreCardSerializer , ClassWorkSerialzer , AttendanceSerialzer ,LessonSerialzer , ClassSerializer
 from .models import ScoreCardModel , ClassWorkModel , AttendaceModels , LessonModel , ClassModel
-
+# For information on this page please refer to the readme about rest_framework for Django
 class ScoreCardViewSet(viewsets.ModelViewSet):
     queryset = ScoreCardModel.objects.all()
     serializer_class = ScoreCardSerializer

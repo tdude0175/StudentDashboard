@@ -2,10 +2,10 @@ body
 {
     background-color: lightblue;
 }
-
+/*workList refers to both the Classwork collection and the Project collection on each students page. */
 .workList
 {
-    height: 300px;
+    height: 300px;  /* /ToDo fix the height to not be a pixel amount. Currently fixed to enable scrolling if percentage is used causes the box to grow to fit all information into it without scroll*/
     background-color: sandybrown;
     overflow-y: scroll;
     margin: 2%;
