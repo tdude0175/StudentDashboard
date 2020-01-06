@@ -1,6 +1,6 @@
 # StudentDashboard
 Code Schools StudentDashBoard Starter code 
-## Current itteration
+## Current Itteration
 This version is the base foundation of the student portal. There is currently Comments inside the files to help direct the next steps towards improving the project 
 
 ####
