@@ -54,7 +54,7 @@ def studentPage(req):
 
 # For rendering the information regarding the classwork for a specific lesson and student it if doesn't exist it will auto create it
 # This page can have more enhancements in the future just servers as a simple page to see the information regarding a classwork right now
-# /ToDo add a notes section to the ClassWork Model to record infor
+# /ToDo add a notes section to the ClassWork Model to record information for student to correct work
 @login_required
 def classWork(req, lessonNum):
     currentUserScorecard = ScoreCardModel.objects.get(studentUserModel=req.user)
@@ -80,7 +80,7 @@ def classWork(req, lessonNum):
     return render(req, 'StudentDashBoard/classworkPage.html', context)
 
 # Allows students to add their clone repos for the classwork
-# /ToDo Setup the GitHub Api to auto FIll in the URL for the ClassWork When A Student Clicks the Scoure URL
+# /ToDo Setup the GitHub Api to auto Fill in the URL for the ClassWork When A Student Clicks the Source URL
 def addWork(req,classworkNum):
     repoToSave =req.POST.get("repoToSave")
     classworkToUpdate = ClassWorkModel.objects.get(id = classworkNum)
