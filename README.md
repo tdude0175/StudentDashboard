@@ -2,8 +2,10 @@
 Code Schools StudentDashBoard Starter code 
 ## Current Itteration
 This version is the base foundation of the student portal. There is currently Comments inside the files to help direct the next steps towards improving the project 
+#### Django Version base: 3.0
+#### Django Packages used: rest_framework
 
-####
+
 ## Things to put into the App for use:
 ### Calendar for the year
   Adding A calendar will go toward helping track attendance and intergrating a section for student to check for events where they can network and grow the portal as a whole
@@ -19,4 +21,8 @@ On the students page (and the eventual Teacher Page) we need to add a section th
   Currently there is an attendance model but is not being used. Setting up a program to help make sure students are in class on time would be extremely helpful. We can use the computer time to determine when they need to input their location that is a predetermined location they need to be which the computer geo location has to match otherwise it won't count.
 ##### Staff have own specific pages to work from. Teachers can build “lessons” for future use focusing on specific projects and can save templates to use for the future. 
 A staff page would go a long way in Improving Teachers ability to create Lessons and Classes and reviewing their grades. 
-####
+
+## Resources used to set up App
+https://www.django-rest-framework.org/tutorial/quickstart/
+
+https://docs.djangoproject.com/en/3.0/intro/tutorial01/
