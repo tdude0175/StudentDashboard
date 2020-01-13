@@ -106,9 +106,13 @@ def addWork(req,classworkNum):
 
 def adminPage(req, classNum):
     classess = ClassModel.objects.get(id=classNum)
+    studentsForClass = ScoreCardModel.objects.filter(cohort = classess)
+    lessonCollection = LessonModel.objects.filter(cohort = classess)
     print(classess)
     context = \
         {
-            'classInfo':classess
+            'classInfo':classess,
+            'studentCollection':studentsForClass,
+            'lessonCollection':lessonCollection
         }
     return render(req,'StudentDashBoard/adminPage.html',context)

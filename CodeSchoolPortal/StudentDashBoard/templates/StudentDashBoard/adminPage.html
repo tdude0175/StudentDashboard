@@ -5,5 +5,14 @@
 {% endblock header %}
 
 {% block content %}
-<p>Admin Page</p>
+<div>
+    {% for student in studentCollection %}
+    <p>{{student.studentsName}}</p>
+    {% endfor %}
+</div>
+<div>
+    {% for lesson in lessonCollection %}
+    <p>{{lesson.lessonName}}</p>
+    {% endfor %}
+</div>
 {% endblock content %}

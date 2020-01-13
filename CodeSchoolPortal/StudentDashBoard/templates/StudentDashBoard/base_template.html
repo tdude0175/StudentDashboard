@@ -12,6 +12,7 @@
 {% endblock header %}
 
 {% block navbar %}
+<a href="{% url 'index' %}">Home Page</a>
 {% if user.is_authenticated %}
     {% if request.user.is_superuser %}
         {% else %}
