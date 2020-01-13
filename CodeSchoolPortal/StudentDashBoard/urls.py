@@ -2,7 +2,7 @@ from django.urls import path , include
 from . import views
 from rest_framework import routers
 from .api import ClassWorkViewSet ,ScoreCardViewSet , AttendaceViewSet , LessonViewSet , ClassViewSet
-# For information regaring rest_framework and setting up api stuff please refer to readme
+# For information regarding rest_framework and setting up api stuff please refer to readme
 # This is used to access the api for building classworks Lessons and the such
 # Currently this is not being used but a future enhancemnt could be adding a setup for a teacher page to use this api information
 router = routers.DefaultRouter()
@@ -18,5 +18,6 @@ urlpatterns = [
     path('studentPage/',views.studentPage,name='studentPage'),
     path('classwork/<int:lessonNum>/',views.classWork,name='classWork'),
     path('addwork/<int:classworkNum>/',views.addWork,name='addWork'),
+    path('adminPage/<int:classNum>/',views.adminPage,name='adminPage'),
     # path('',include(router.urls)),
 ]

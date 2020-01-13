@@ -5,10 +5,17 @@
 {% endblock header %}
 <!--A lot of logic is handled here. It needs to be pushed back to the backend for easier translation in the event of movement to a different frontend setup-->
 {% block content %}
-<div id="ClassWorkList" class="workList">
 
+<div id="ClassWorkList" class="workList">
+    <div class="listHeader">
+        <p>Classwork</p>
+        <p> Repo Source URL</p>
+        <p>Grade</p>
+        <p>Classwork Submission</p>
+    </div>
     {% for lesson in lessons %}
     <div class="WorkListSpacing">
+
         <a href="{% url 'classWork' lesson.id %}">{{lesson.lessonName}}</a>
         <a target="_blank" href="{{lesson.sourceURL}}">ClassWork Link </a>
         {% for classwork in classworks %}
@@ -28,7 +35,14 @@
     </div>
     {% endfor %}
 </div>
+
 <div id="ProjectList" class="workList">
+    <div class="listHeader">
+        <p>Project</p>
+        <p> Repo Source URL</p>
+        <p>Grade</p>
+        <p>Project Submission</p>
+    </div>
     {% for project in projects %}
     <div class="WorkListSpacing">
         <a href="{% url 'classWork' project.id %}">{{project.lessonName}}</a>

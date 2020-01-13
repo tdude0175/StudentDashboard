@@ -5,5 +5,14 @@
 {% endblock header %}
 
 {% block content %}
+{% if message %}
 <p>{{message}}</p>
+{% endif %}
+{% if classCollection %}
+<div>
+{% for class in classCollection %}
+<a href="{% url 'adminPage' class.id %}">{{class}}</a>
+{% endfor %}
+</div>
+{% endif %}
 {% endblock content %}

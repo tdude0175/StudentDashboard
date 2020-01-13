@@ -8,12 +8,21 @@ from django.shortcuts import redirect
 # Create your views here.
 
 # Index serves right now as a page to default to. In the future more information can be put onto the index page for students to refer to.
+# if an admin is logged in it will show a list of classes to go to right now using their id
 def index(req):
     if req.user.is_authenticated:
-        context = \
-            {
-                'message': f"Welcome {req.user.username}"
-            }
+        if req.user.is_superuser:
+            classess = ClassModel.objects.all()
+            context =\
+                {
+                    'message': f"Welcome {req.user.username}",
+                    'classCollection': classess
+                }
+        else:
+            context = \
+                {
+                    'message': f"Welcome {req.user.username}"
+                }
         return render(req, 'StudentDashBoard/index.html', context)
     context = \
         {
@@ -29,6 +38,10 @@ def studentPage(req):
     lessonCollection = LessonModel.objects.filter(lessonIsProject=False)
     projectCollection = LessonModel.objects.filter(lessonIsProject=True)
     studentClassworks = ClassWorkModel.objects.filter(student=currentUserScorecard)
+    classWorkTotal = 0
+    gradeTotal = 0
+    for lesson in lessonCollection:
+        classWorkTotal += lesson.possiblePoints
     # Here it will check wether or not a classwork exists for a student and the proceed to create one if it does not exist
     # /ToDo Add the functionality that when a teacher creates a lesson for a CLass all, A classwork is created for all students in that class
     for lesson in LessonModel.objects.all():
@@ -44,6 +57,9 @@ def studentPage(req):
             newClassworkMade = ClassWorkModel(student=currentUserScorecard, lesson=lesson, repoWithStudentsWork='',
                                               grade=0)
             newClassworkMade.save()
+    for work in studentClassworks:
+        if work.lesson.lessonIsProject == False:
+            gradeTotal += work.grade
     context = \
         {
             'lessons': lessonCollection,
@@ -87,3 +103,12 @@ def addWork(req,classworkNum):
     classworkToUpdate.repoWithStudentsWork = repoToSave
     classworkToUpdate.save()
     return redirect('studentPage')
+
+def adminPage(req, classNum):
+    classess = ClassModel.objects.get(id=classNum)
+    print(classess)
+    context = \
+        {
+            'classInfo':classess
+        }
+    return render(req,'StudentDashBoard/adminPage.html',context)
