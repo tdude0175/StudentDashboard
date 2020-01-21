@@ -1,0 +1,1 @@
+web: gunicorn CodeSchoolPortal.wsgi --log-file -
