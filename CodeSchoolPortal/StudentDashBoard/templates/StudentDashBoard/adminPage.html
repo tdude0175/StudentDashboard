@@ -1,0 +1,18 @@
+{% extends 'StudentDashBoard/base_template.html' %}
+{% block title %} Admin Page {% endblock title %}
+{% block header %}
+<h1>Admin Page</h1>
+{% endblock header %}
+
+{% block content %}
+<div>
+    {% for student in studentCollection %}
+    <p>{{student.studentsName}}</p>
+    {% endfor %}
+</div>
+<div>
+    {% for lesson in lessonCollection %}
+    <p>{{lesson.lessonName}}</p>
+    {% endfor %}
+</div>
+{% endblock content %}

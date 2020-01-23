@@ -1,0 +1,18 @@
+{% extends 'StudentDashBoard/base_template.html' %}
+{% block title %} Home {% endblock title %}
+{% block header %}
+<h1> Home Page</h1>
+{% endblock header %}
+
+{% block content %}
+{% if message %}
+<p>{{message}}</p>
+{% endif %}
+{% if classCollection %}
+<div>
+{% for class in classCollection %}
+<a href="{% url 'adminPage' class.id %}">{{class}}</a>
+{% endfor %}
+</div>
+{% endif %}
+{% endblock content %}

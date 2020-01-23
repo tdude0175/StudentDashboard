@@ -1,0 +1,54 @@
+body
+{
+    background-color: lightblue;
+}
+/*workList refers to both the Classwork collection and the Project collection on each students page. */
+.workList
+{
+    height: 300px;  /* /ToDo fix the height to not be a pixel amount. Currently fixed to enable scrolling if percentage is used causes the box to grow to fit all information into it without scroll*/
+    background-color: sandybrown;
+    overflow-y: scroll;
+    margin: 2%;
+    max-height: fit-content;
+}
+#ClassWorkList
+{
+    grid-column: 1/4;
+    grid-row: 1/5;
+}
+#ProjectList
+{
+    grid-column: 1/4;
+    grid-row: 5/9;
+}
+.WorkListSpacing
+{
+        margin: 2%;
+    max-height: 20%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    background-color: lightgoldenrodyellow;
+}
+.WorkListSpacing a
+{
+    color: black;
+    text-decoration: none;
+}
+.WorkListSpacing a:hover
+{
+    text-decoration: underline;
+    color: blueviolet;
+}
+#gridContainer
+{
+    width: 100%;
+    display: inline-grid;
+    grid-template-columns: repeat(6,1fr) ;
+    grid-template-rows: repeat(8,1fr);
+
+}
+.listHeader
+{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}

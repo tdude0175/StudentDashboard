@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Base Template Title {% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'StudentDashBoard/index.css' %}">
+</head>
+<body>
+{% block header %}
+<h1>Header</h1>
+{% endblock header %}
+
+{% block navbar %}
+<a href="{% url 'index' %}">Home Page</a>
+{% if user.is_authenticated %}
+    {% if request.user.is_superuser %}
+        {% else %}
+        <a href="{% url 'studentPage' %}">Student Page</a>
+    {% endif %}
+    <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+<a href="{% url 'login' %}">Login</a>
+{% endif %}
+{% endblock navbar %}
+<!--Gets a grid built for the work to be put into and display-->
+<div id="gridContainer">
+    {% block content %}
+    <h1>Content</h1>
+    {% endblock content %}
+</div>
+</body>
+</html>
