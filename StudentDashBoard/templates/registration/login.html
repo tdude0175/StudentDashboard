@@ -1,0 +1,21 @@
+{% extends 'StudentDashBoard/base_template.html' %}
+{% block title %} Login Page {% endblock title %}
+<!--This page is used to log a student in. Please note that this page is in templates/registration instead of the container for the other template pages due to it being a built in Django application -->
+{% block header %}
+<h1>Login Page</h1>
+{% endblock header %}
+
+{% block content %}
+{% if form.errors %}
+<h3>Your username or password is incorrect</h3>
+{% endif %}
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <p>{{ form.username.label_tag }}</p>
+    <p>{{ form.username }}</p>
+    <p>{{ form.password.label_tag }}</p>
+    <p>{{ form.password }}</p>
+    <button>Submit</button>
+</form>
+{% endblock content %}
+
