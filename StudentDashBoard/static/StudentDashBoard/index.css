@@ -1,15 +1,24 @@
 body
 {
-    background-color: lightblue;
+    font-family: "Arial Black", Gadget, sans-serif;
+    margin: 1%;
+}
+a{
+    padding-right: 1%;
+    text-decoration: none;
+    margin: 1% 0 1% 0;
+    color: cornflowerblue;
 }
 /*workList refers to both the Classwork collection and the Project collection on each students page. */
 .workList
 {
-    height: 300px;  /* /ToDo fix the height to not be a pixel amount. Currently fixed to enable scrolling if percentage is used causes the box to grow to fit all information into it without scroll*/
-    background-color: sandybrown;
+    /*ToDo fix the height to not be a pixel amount. Currently fixed to enable scrolling if percentage is used causes the box to grow to fit all information into it without scroll*/
+    /*height: 300px;*/
+    height: max-content;
+    background-color: lightgray;
     overflow-y: scroll;
-    margin: 2%;
-    max-height: fit-content;
+    /*margin: 2%;*/
+    /*max-height: fit-content;*/
 }
 #ClassWorkList
 {
@@ -23,21 +32,22 @@ body
 }
 .WorkListSpacing
 {
-    margin: 2%;
     max-height: 20%;
     display: grid;
+    /*text-align: center;*/
     grid-template-columns: repeat(4,1fr);
-    background-color: lightgoldenrodyellow;
+    background-color: darkgray;
+    padding: 1% 0 1% 0;
 }
 .WorkListSpacing a
 {
     color: black;
+    margin: 1% 0 1% 0;
     text-decoration: none;
 }
 .WorkListSpacing a:hover
 {
-    text-decoration: underline;
-    color: blueviolet;
+    color: whitesmoke;
 }
 #gridContainer
 {
