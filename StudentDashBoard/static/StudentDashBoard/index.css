@@ -23,7 +23,7 @@ body
 }
 .WorkListSpacing
 {
-        margin: 2%;
+    margin: 2%;
     max-height: 20%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
