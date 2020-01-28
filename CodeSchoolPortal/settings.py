@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'CodeSchoolPortal.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://student:student@localhost:5432/microblog')
+    'default': dj_database_url.config(default='postgres://student:student@localhost:5432/portaldb')
 }
 
 
